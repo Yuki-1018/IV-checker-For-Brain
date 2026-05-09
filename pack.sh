@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME="Hello World"
+APP_NAME="IV Checker"
 
 TARGET_DIR="./${APP_NAME}"
 PYTHON_DIR="${TARGET_DIR}/python"
