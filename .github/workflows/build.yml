@@ -1,0 +1,27 @@
+name: Build Artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Grant execute permission to pack.sh
+        run: chmod +x ./pack.sh
+
+      - name: Run pack script
+        run: ./pack.sh
+
+      - name: Archive directory
+        run: zip -r "iv_checker.zip" "IV Checker"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iv_checker
+          path: iv_checker.zip
